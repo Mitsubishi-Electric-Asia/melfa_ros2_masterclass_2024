@@ -1,0 +1,11 @@
+/**:
+   ros__parameters:
+    planning_group:
+      rv5as
+      
+    EEF_FRAME_ID: rv5as_default_tcp
+    BASE_FRAME_ID: rv5as_base
+
+    velocity_scaling: 0.1
+    acceleration_scaling: 1.0
+
