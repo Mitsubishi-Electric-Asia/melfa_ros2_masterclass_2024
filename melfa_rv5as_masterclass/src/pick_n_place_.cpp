@@ -85,6 +85,7 @@ public:
     task_command_subscription_ = this->create_subscription<std_msgs::msg::UInt8>(
         "/task_command", rclcpp::SensorDataQoS(), std::bind(&PnPNode::task_command_callback, this, _1), options);
   }
+  // sensor callback for optical sensors
   void sensor_state_callback(const melfa_masterclass_msgs::msg::SensorState& msg)
   {
     sensor_state_.sensor_0 = msg.sensor_0;
@@ -96,7 +97,7 @@ public:
     sensor_state_.sensor_6 = msg.sensor_6;
     sensor_state_.sensor_7 = msg.sensor_7;
   }
-
+  // safety state callback for IEC compliant safety states
   void safety_state_callback(const melfa_masterclass_msgs::msg::SafetyState& msg)
   {
     safety_state_.DSI_1 = msg.dsi_1;
@@ -108,6 +109,7 @@ public:
     safety_state_.DSI_7 = msg.dsi_7;
     safety_state_.DSI_8 = msg.dsi_8;
   }
+  // gripper state and command
   void gripper_state_callback(const melfa_masterclass_msgs::msg::GripperState& msg)
   {
     auto pub_msg = melfa_masterclass_msgs::msg::GripperState();
@@ -133,6 +135,7 @@ public:
 
     gripper_command_publisher_->publish(pub_msg);
   }
+  // receive state instruction from hmi
   void task_command_callback(const std_msgs::msg::UInt8& msg)
   {
     task_command_ = msg.data;
@@ -250,11 +253,11 @@ int main(int argc, char** argv)
     slp2_back.header.frame_id = BASE_FRAME_ID;
     slp2_back.primitives.resize(1);
     slp2_back.primitives[0].type = shape_msgs::msg::SolidPrimitive::BOX;
-    slp2_back.primitives[0].dimensions = { 0.01, 1.0, 1.0 };
+    slp2_back.primitives[0].dimensions = { 0.01, 1.0, 0.9 };
 
     pose.position.x = -0.4;
     pose.position.y = 0.0;
-    pose.position.z = 0.5;
+    pose.position.z = 0.45;
     pose.orientation.w = 1.0;
     slp2_back.pose = pose;
 
@@ -263,11 +266,11 @@ int main(int argc, char** argv)
     slp2_front.header.frame_id = BASE_FRAME_ID;
     slp2_front.primitives.resize(1);
     slp2_front.primitives[0].type = shape_msgs::msg::SolidPrimitive::BOX;
-    slp2_front.primitives[0].dimensions = { 0.01, 1.0, 1.0 };
+    slp2_front.primitives[0].dimensions = { 0.01, 1.0, 0.9 };
 
     pose.position.x = 0.8;
     pose.position.y = 0.0;
-    pose.position.z = 0.5;
+    pose.position.z = 0.45;
     pose.orientation.w = 1.0;
     slp2_front.pose = pose;
 
@@ -293,7 +296,7 @@ int main(int argc, char** argv)
 
     pose.position.x = 0.2;
     pose.position.y = 0.0;
-    pose.position.z = 1.0;
+    pose.position.z = 0.9;
     pose.orientation.w = 1.0;
     slp2_top.pose = pose;
 
@@ -302,11 +305,11 @@ int main(int argc, char** argv)
     slp2_left.header.frame_id = BASE_FRAME_ID;
     slp2_left.primitives.resize(1);
     slp2_left.primitives[0].type = shape_msgs::msg::SolidPrimitive::BOX;
-    slp2_left.primitives[0].dimensions = { 1.2, 0.01, 1.0 };
+    slp2_left.primitives[0].dimensions = { 1.2, 0.01, 0.9 };
 
     pose.position.x = 0.2;
     pose.position.y = 0.5;
-    pose.position.z = 0.5;
+    pose.position.z = 0.45;
     pose.orientation.w = 1.0;
     slp2_left.pose = pose;
 
@@ -315,11 +318,11 @@ int main(int argc, char** argv)
     slp2_right.header.frame_id = BASE_FRAME_ID;
     slp2_right.primitives.resize(1);
     slp2_right.primitives[0].type = shape_msgs::msg::SolidPrimitive::BOX;
-    slp2_right.primitives[0].dimensions = { 1.2, 0.01, 1.0 };
+    slp2_right.primitives[0].dimensions = { 1.2, 0.01, 0.9 };
 
     pose.position.x = 0.2;
     pose.position.y = -0.5;
-    pose.position.z = 0.5;
+    pose.position.z = 0.45;
     pose.orientation.w = 1.0;
     slp2_right.pose = pose;
 
@@ -405,7 +408,7 @@ int main(int argc, char** argv)
     std::vector<geometry_msgs::msg::Pose> task_points;
     // Approach
     auto pose_1 = home0_pose;
-    pose_1.position.y -= 0.3;
+    pose_1.position.y -= 0.35;
     pose_1.position.z -= 0.2;
     task_points.push_back(pose_1);
 
@@ -421,6 +424,10 @@ int main(int argc, char** argv)
     int i = 0;
     for (i = 0; i < 3; i++)
     {
+      if (plan_fail)
+      {
+        break;
+      }
       geometry_msgs::msg::PoseStamped msg;
       msg.header.frame_id = "world";
       msg.pose = task_points[i];
@@ -462,7 +469,7 @@ int main(int argc, char** argv)
 
     // Approach
     auto pose_1 = home0_pose;
-    pose_1.position.y += 0.3;
+    pose_1.position.y += 0.35;
     pose_1.position.z -= 0.2;
     task_points.push_back(pose_1);
 
@@ -478,6 +485,10 @@ int main(int argc, char** argv)
     int i = 0;
     for (i = 0; i < 3; i++)
     {
+      if (plan_fail)
+      {
+        break;
+      }
       msg.pose = task_points[i];
       msg.header.frame_id = "world";
       move_group.setJointValueTarget(msg.pose, EEF_FRAME_ID);
@@ -498,7 +509,7 @@ int main(int argc, char** argv)
       }
       if (i == 1)
       {
-        RCLCPP_INFO(LOGGER, "Close Gripper");
+        RCLCPP_INFO(LOGGER, "Open Gripper");
         gripper_command_.double_solenoid = true;
         gripper_command_.hand_1 = false;
         gripper_command_.hand_2 = false;
@@ -547,6 +558,8 @@ int main(int argc, char** argv)
   setupGripper();
   setupSLP2();
   setupSLP3();
+  bool dsi_1_flag_ = false;
+  bool start_flag_ = false;
   while (task_command_ != 0b1000)
   {
     switch (task_command_)
@@ -555,17 +568,45 @@ int main(int argc, char** argv)
         pid_ = getppid();
         RCLCPP_INFO(LOGGER, "start task");
         startTask();
+        start_flag_ = true;
         break;
       case 0b10:
-        RCLCPP_INFO(LOGGER, "pick task");
-        pickTask();
+        if (start_flag_)
+        {
+          RCLCPP_INFO(LOGGER, "pick task");
+          pickTask();
+        }
+        else
+        {
+          RCLCPP_INFO(LOGGER, "select start to initialize");
+        }
         break;
       case 0b100:
-        RCLCPP_INFO(LOGGER, "place task");
-        placeTask();
+        if (start_flag_)
+        {
+          RCLCPP_INFO(LOGGER, "place task");
+          placeTask();
+        }
+        else
+        {
+          RCLCPP_INFO(LOGGER, "select start to initialize");
+        }
         break;
       default:
         break;
+    }
+    // Lower speed when DSI_1 is active
+    if (safety_state_.DSI_1 && !dsi_1_flag_)
+    {
+      move_group.setMaxVelocityScalingFactor(0.07);
+      move_group.setMaxAccelerationScalingFactor(0.1);
+      dsi_1_flag_ = true;
+    }
+    else if (!safety_state_.DSI_1 && dsi_1_flag_)
+    {
+      move_group.setMaxVelocityScalingFactor(0.3);
+      move_group.setMaxAccelerationScalingFactor(0.3);
+      dsi_1_flag_ = false;
     }
     // Apply slp3 in moveit when DSI_2 is active
     if (safety_state_.DSI_2 && !slp3_flag_)
@@ -575,15 +616,13 @@ int main(int argc, char** argv)
       move_group.setPlannerId("RRTstar");
       planning_scene_interface.applyCollisionObject(slp3_);
       move_group.setPlanningTime(5.0);
-      move_group.setNumPlanningAttempts(10);
+      move_group.setNumPlanningAttempts(20);
     }
     else if (!safety_state_.DSI_2 && slp3_flag_)
     {
       std::vector<std::string> object_ids;
       object_ids.push_back("slp3_");
       planning_scene_interface.removeCollisionObjects(object_ids);
-      // move_group.setPlanningPipelineId("pilz_industrial_motion_planner");
-      // move_group.setPlannerId("LIN");
       slp3_flag_ = false;
     }
   }
