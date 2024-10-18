@@ -104,7 +104,12 @@ public:
         break;
       case 0b1:
         task_command.data = 0b1;
-        RCLCPP_INFO(rclcpp::get_logger("push_button_callback"), "Start received");
+        if (!pick_n_place_pid_)
+        {
+          pick_n_place_pid_=1;
+          // system("gnome-terminal -x sh -c 'ros2 launch melfa_rv5as_masterclass pick_n_place.launch.py'");
+          RCLCPP_INFO(rclcpp::get_logger("push_button_callback"), "Start received");
+        }
         break;
       case 0b10:
         task_command.data = 0b10;
@@ -117,6 +122,10 @@ public:
       case 0b1000:
         task_command.data = 0b1000;
         RCLCPP_INFO(rclcpp::get_logger("push_button_callback"), "Exit received");
+        if(pick_n_place_pid_!=1)
+        {
+          pick_n_place_pid_=0;
+        }
         break;
 
       default:
@@ -134,6 +143,7 @@ private:
   rclcpp::Publisher<std_msgs::msg::UInt8>::SharedPtr task_command_publisher_;
   rclcpp::Publisher<melfa_msgs::msg::GpioCommand>::SharedPtr analog_data_publisher_;
   rclcpp::SubscriptionOptions options;
+  uint32_t pick_n_place_pid_ = 0;
 };
 
 int main(int argc, char** argv)
