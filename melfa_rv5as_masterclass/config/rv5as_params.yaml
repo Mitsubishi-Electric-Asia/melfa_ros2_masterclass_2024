@@ -2,7 +2,8 @@
    ros__parameters:
     planning_group:
       rv5as
-      
+    
+    FLANGE_FRAME_ID: rv5as_hand_flange
     EEF_FRAME_ID: rv5as_default_tcp
     BASE_FRAME_ID: rv5as_base
 
