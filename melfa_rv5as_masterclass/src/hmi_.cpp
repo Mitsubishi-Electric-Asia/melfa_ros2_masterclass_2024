@@ -107,7 +107,6 @@ public:
         if (!pick_n_place_pid_)
         {
           pick_n_place_pid_=1;
-          // system("gnome-terminal -x sh -c 'ros2 launch melfa_rv5as_masterclass pick_n_place.launch.py'");
           RCLCPP_INFO(rclcpp::get_logger("push_button_callback"), "Start received");
         }
         break;
@@ -122,7 +121,7 @@ public:
       case 0b1000:
         task_command.data = 0b1000;
         RCLCPP_INFO(rclcpp::get_logger("push_button_callback"), "Exit received");
-        if(pick_n_place_pid_!=1)
+        if(pick_n_place_pid_)
         {
           pick_n_place_pid_=0;
         }
