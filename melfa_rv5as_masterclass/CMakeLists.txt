@@ -11,6 +11,7 @@ find_package(rclcpp REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
 find_package(moveit_visual_tools REQUIRED)
 find_package(melfa_msgs REQUIRED)
+find_package(melfa_masterclass_msgs REQUIRED)
 find_package(shape_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 
@@ -20,22 +21,22 @@ target_include_directories(plc_ PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 target_compile_features(plc_ PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
-ament_target_dependencies(plc_ ${THIS_PACKAGE_INCLUDE_DEPENDS} melfa_msgs std_msgs rclcpp)
+ament_target_dependencies(plc_ ${THIS_PACKAGE_INCLUDE_DEPENDS} melfa_msgs melfa_masterclass_msgs std_msgs rclcpp)
 
 add_executable(hmi_ src/hmi_.cpp)
 target_include_directories(hmi_ PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 target_compile_features(hmi_ PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
-ament_target_dependencies(hmi_ ${THIS_PACKAGE_INCLUDE_DEPENDS} melfa_msgs std_msgs rclcpp)
+ament_target_dependencies(hmi_ ${THIS_PACKAGE_INCLUDE_DEPENDS} melfa_msgs melfa_masterclass_msgs std_msgs rclcpp)
 
 
-add_executable(ex1 src/ex1.cpp)
-target_include_directories(ex1 PUBLIC
+add_executable(pick_n_place_ src/pick_n_place_.cpp)
+target_include_directories(pick_n_place_ PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
-target_compile_features(ex1 PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
-ament_target_dependencies(ex1 ${THIS_PACKAGE_INCLUDE_DEPENDS} moveit_ros_planning_interface melfa_msgs rclcpp)
+target_compile_features(pick_n_place_ PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+ament_target_dependencies(pick_n_place_ ${THIS_PACKAGE_INCLUDE_DEPENDS} moveit_ros_planning_interface melfa_msgs melfa_masterclass_msgs std_msgs rclcpp)
 
 add_executable(ex2 src/ex2.cpp)
 target_include_directories(ex2 PUBLIC
@@ -52,7 +53,7 @@ target_compile_features(ex3 PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 ament_target_dependencies(ex3 ${THIS_PACKAGE_INCLUDE_DEPENDS} moveit_ros_planning_interface melfa_msgs rclcpp)
 
 
-install(TARGETS plc_ hmi_ ex1 ex2 ex3
+install(TARGETS plc_ hmi_ pick_n_place_
 DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
