@@ -1,0 +1,25 @@
+2024:09:04 18:05:19	:Syntax check Error
+	:Program	:DEMO1(Command:3)	:RC1	:Robot	:3 If M_Inb(6000)=1 Then GoSub MoveP1	:Syntax error
+2024:09:04 18:05:34	:Syntax check Error
+	:Program	:DEMO1(Command:3)	:RC1	:Robot	:3 If M_Inb(6000)=1 Then GoSub MoveP1	:Syntax error
+2024:09:04 18:05:46	:Syntax check Error
+	:Program	:DEMO1(Command:13)	:RC1	:Robot	:13*MoveP1	:Duplicate definition (label)
+2024:09:04 18:30:03	:Syntax check Error
+	:Program	:DEMO1(Command:4)	:RC1	:Robot	:4 If M_Inb(6000)=1 Then GoSub Mvs P1	:Syntax error
+	:Program	:DEMO1(Command:5)	:RC1	:Robot	:5 If 1=M_Inb(6001) Then GoSub Mvs P2	:Syntax error
+2024:09:05 10:31:05	:Syntax check Error
+	:Program	:DEMO1(Command:3)	:RC1	:Robot	:3 Fine P, 100	:Syntax error
+2024:09:05 10:31:45	:Syntax check Error
+	:Program	:DEMO1(Command:3)	:RC1	:Robot	:3 FineP 100	:Syntax error
+2024:09:05 10:43:29	:Syntax check Error
+	:Program	:DEMO1(Command:10)	:RC1	:Robot	:10GoSub *MoveP3Down	:Jump destination does not exist
+2024:09:05 11:12:31	:Syntax check Error
+	:Program	:DEMO1(Command:45)	:RC1	:Robot	:45*OpenH	:Duplicate definition (label)
+2024:09:05 11:13:19	:Syntax check Error
+	:Program	:DEMO1(Command:15)	:RC1	:Robot	:15*CloseH	:Duplicate definition (label)
+2024:09:05 11:14:05	:Syntax check Error
+	:Program	:DEMO1(Command:15)	:RC1	:Robot	:15*CloseH	:Duplicate definition (label)
+2024:09:05 11:14:51	:Syntax check Error
+	:Program	:DEMO1(Command:15)	:RC1	:Robot	:15*CloseCus	:Duplicate definition (label)
+2024:09:05 11:15:16	:Syntax check Error
+	:Program	:DEMO1(Command:17)	:RC1	:Robot	:17*CloseCus	:Duplicate definition (label)

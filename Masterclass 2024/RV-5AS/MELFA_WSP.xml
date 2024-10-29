@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Workspace>
+	<Workspace_Title>RV-5AS</Workspace_Title>
+	<Workspace_Vertion>2.1.0</Workspace_Vertion>
+	<Workspace_Date>2024/09/04 15:37:27</Workspace_Date>
+	<Project>RC1</Project>
+	<Display3D>
+		<RobotModelType>0</RobotModelType>
+	</Display3D>
+	<LastLayoutSelect>Layout</LastLayoutSelect>
+	<ScreenRect>
+		<Screen160>
+			<AdditionalInfo/>
+			<Left>92</Left>
+			<Top>44</Top>
+			<Right>830</Right>
+			<Bottom>245</Bottom>
+		</Screen160>
+	</ScreenRect>
+	<LastSimulationSelect>
+		<ProjectName>RC1</ProjectName>
+	</LastSimulationSelect>
+	<IOSimulator>
+		<FilePathType>1</FilePathType>
+		<FilePath>@IOSimulator@\masterclass.xml</FilePath>
+		<AutoStart>0</AutoStart>
+	</IOSimulator>
+</Workspace>
