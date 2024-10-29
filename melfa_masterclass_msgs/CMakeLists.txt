@@ -12,7 +12,6 @@ find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/SafetyState.msg"
   "msg/GripperState.msg"
-  "msg/GripperCommand.msg"
   "msg/SensorState.msg"
  )
 
