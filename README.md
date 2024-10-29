@@ -54,39 +54,38 @@ __Professional designs. Maximized efficiency. Intuitive operations. Made possibl
 <br/></br>
 [<img src="./doc/figures/GT3.png" width="345" height="194">](https://www.mitsubishielectric.com/fa/products/hmi/got/smerit/gt_works3/index.html)
 
-
 ## __2. MELSOFT Project Files__
 
 MELFA ROS2 Masterclass 2024 utilizes physical and simulated hardware to provide a robust platform with hardware accurate digital twins for MELSEC, MELFA and GOT products. This section describes the purpose and functionality of the included MELSOFT project files.
 
-### 1. __RV-5AS__
+### __RV-5AS__
 - [MELSOFT RT Toolbox3](https://www.mitsubishielectric.com/fa/products/rbt/robot/smerit/rt3/index.html) project folder for [MELFA](https://www.mitsubishielectric.com/fa/products/rbt/robot/index.html) RV-5AS collaboratie robot. 
 - This project folder is used to configure and program a physical RV-5AS robot used in the Masterclass.
 - This porject file is used to create and configure a simulated RV-5AS robot that is identical to the physical robot used in the Masterclass.
-<br/>
+<div> </div>
 
-### 2. __FX5UJ_hw.gx3__
+### __FX5UJ_hw.gx3__
 - [MELSOFT GX Works3](https://www.mitsubishielectric.com/fa/products/cnt/plceng/smerit/gx_works3/index.html) project file for [MELSEC IQ-F](https://www.mitsubishielectric.com/fa/products/cnt/plcf/items/index.html) FX5UJ programmable logic controller.
 - This project file is used to configure and program a physical FX5UJ PLC used in the Masterclass.
 - This porject file is used to create and configure a simulated FX5UJ PLC that is identical to the physical PLC used in the Masterclass.
-<br/>
+<div> </div>
 
-### 3. __GT27_hw.GTX__
+### __GT27_hw.GTX__
 - [MELSOFT GT works 3](https://www.mitsubishielectric.com/fa/products/hmi/got/smerit/gt_works3/index.html) project file for [GOT](https://www.mitsubishielectric.com/fa/products/hmi/got/pmerit/index.html) GT2715-XTBA Human Machine Interface. 
 - This project file is a modification of the [GOT2000 sample screen data for CR800-D series controller](https://www.mitsubishielectric.co.jp/fa/download/software/detailsearch.do?mode=software&kisyu=/robot&shiryoid=0000000079&kisyuid=0&lang=0&select=0&softid=0&infostatus=0_0_0&viewradio=0&viewstatus=0&viewpos=0) with a custom screen to interface with MELFA ROS2 Driver and associated I/O controllers.
-<br/>
+<div> </div>
 
-### 4. __GT27_sim.GTX__
+### __GT27_sim.GTX__
 - [MELSOFT GT works 3](https://www.mitsubishielectric.com/fa/products/hmi/got/smerit/gt_works3/index.html) project file for [GOT](https://www.mitsubishielectric.com/fa/products/hmi/got/pmerit/index.html) simulation.
 - This project file is a modification of the GT27_hw.GTX with better compatibility with other MELSOFT simulators.
 <div> </div>
 
-## __5. MELFA ROS2 Packages__
+## __3. MELFA ROS2 Packages__
 
-### 1. melfa_masterclass_msgs
+### melfa_masterclass_msgs
 - Custom ROS2 interfaces for this Masterclass
 
-### 2. melfa_rv5as_masterclass
+### melfa_rv5as_masterclass
 - Executables and launch files for ROS2 programs used during the Maserclass
 
 ## __4. Ussage and Installation__
