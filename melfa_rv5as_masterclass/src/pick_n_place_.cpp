@@ -604,8 +604,8 @@ int main(int argc, char** argv)
     }
     else if (!safety_state_.DSI_1 && dsi_1_flag_)
     {
-      move_group.setMaxVelocityScalingFactor(0.3);
-      move_group.setMaxAccelerationScalingFactor(0.3);
+      move_group.setMaxVelocityScalingFactor(0.2);
+      move_group.setMaxAccelerationScalingFactor(0.2);
       dsi_1_flag_ = false;
     }
     // Apply slp3 in moveit when DSI_2 is active
