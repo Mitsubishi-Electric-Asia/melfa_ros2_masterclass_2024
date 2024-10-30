@@ -60,9 +60,11 @@ ros2 run melfa_rv5as_masterclass hmi_
 </br>
 You are ready!
 
-## __2. Try out MELFA ROS2 Driver in CLI__
+## __2. Interface with MELSOFT Simulators with ROS2 Command Line Interface__
 
-This
+This section provides a guide to interface with the MELSOFT Simulators on the Windows10 device.
+
+
 
 ## __3. Experience a simple MELFA ROS2 application with MELSOFT simulators__
 
