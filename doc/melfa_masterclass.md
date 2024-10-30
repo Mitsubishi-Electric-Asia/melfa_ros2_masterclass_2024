@@ -13,7 +13,15 @@ This section provides a guide to connect to MELSOFT RT Toolbox3 Simulator.
 
 MELSOFT RT Toolbox3 creates a system simulation of the RV-5AS collaborative robot. The simulator simulates the _Real Time External Command_ ethernet function, allowing ROS2 to connect to the simulation as if it is a real physical robot.
 
-#### 1. Open a new terminal. Source your MELFA workspace and connect to the simulation with the command below. [Terminal 1]
+### 1. Hardware Connection
+
+Ensure that your Ubuntu and Windows10 devices are connected to the same LAN.
+
+Ensure that your Windows10 device is able to ping your Ubuntu device. Your Ubuntu device may not be able to ping your Windows10 device due to certain Windows firewall configurations. If your Windows10 device is able to ping your Ubuntu device, your devices are connected.
+
+### 2. Launch MELFA ROS2 Driver [Terminal 1]
+
+Open a new terminal. Source your MELFA workspace and connect to the simulation with the command below.
 ```
 ros2 launch melfa_bringup rv5as_control.launch.py use_fake_hardware:=false robot_ip:=<MELSOFT_PC_IP_address>
 ```
@@ -29,7 +37,9 @@ You will be greeted with a block of text. Do not be alarmed as the packet losses
 
 </br>
 
-#### 2. Open a new terminal. Source your MELFA workspace and run the command below. [Terminal 2]
+### 3. Run plc_ node [Terminal 2]
+
+Open a new terminal. Source your MELFA workspace and run the command below.
 ```
 ros2 run melfa_rv5as_masterclass plc_ 
 ```
@@ -38,7 +48,9 @@ ros2 run melfa_rv5as_masterclass plc_
 
 </br>
 
-#### 3. Open a new terminal. Source your MELFA workspace and run the command below. [Terminal 3]
+### 4. Run hmi_ node [Terminal 3]
+
+Open a new terminal. Source your MELFA workspace and run the command below.
 ```
 ros2 run melfa_rv5as_masterclass hmi_ 
 ```
