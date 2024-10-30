@@ -68,7 +68,6 @@ __pycache__/
 *.iso
 *.rar
 *.tar
-*.zip
 
 # Others
 Backup*/
