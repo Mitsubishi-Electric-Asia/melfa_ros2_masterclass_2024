@@ -93,7 +93,7 @@ MELFA ROS2 Masterclass 2024 utilizes physical and simulated hardware to provide 
 &#10146; Note: This repository supports Ubuntu 22.04 for ROS2 Humble and Windows10 for MELSOFT __ONLY__. Using a different operating environment may cause in unintended results.
 
 - [Masterclass content](./doc/melfa_masterclass.md): Class content with instructions and descriptions
-- [MELSOFT Simulators setup guide](./doc/melsoft_setup.md): Setup and configuration of MELSOFT simulators
+- [MELFA ROS2 & MELSOFT setup guide](./doc/melsoft_setup.md): Setup and configuration of MELSOFT simulators
 
 
 ## __5. Other MELFA ROS2 Related Repositories__
