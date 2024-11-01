@@ -191,7 +191,6 @@ int main(int argc, char** argv)
 
   // Define planning group
   std::string param_planning_group = move_group_node->get_parameter("planning_group").as_string();
-  // std::string param_planning_group = "rv7frlxy";
   static const std::string PLANNING_GROUP = param_planning_group;
   RCLCPP_INFO(LOGGER, "Using planning group: %s", param_planning_group.c_str());
   moveit::planning_interface::MoveGroupInterface move_group(move_group_node, PLANNING_GROUP);

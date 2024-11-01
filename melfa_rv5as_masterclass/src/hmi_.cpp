@@ -58,7 +58,7 @@ void configure_io_(rclcpp::Node::SharedPtr node_, std::string mode, uint16_t add
   {
     auto service_response = io_write_result.get();
 
-    RCLCPP_INFO(rclcpp::get_logger("configure_io_"), "Service Sucess");
+    RCLCPP_INFO(rclcpp::get_logger("configure_io_"), "Service Success");
   }
   else
   {

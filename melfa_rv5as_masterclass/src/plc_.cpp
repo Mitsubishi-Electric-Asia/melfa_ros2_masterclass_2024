@@ -62,7 +62,7 @@ void configure_io_(rclcpp::Node::SharedPtr node_, std::string mode, uint16_t add
   {
     auto service_response = io_write_result.get();
 
-    RCLCPP_INFO(rclcpp::get_logger("configure_io_"), "Service Sucess");
+    RCLCPP_INFO(rclcpp::get_logger("configure_io_"), "Service Success");
   }
   else
   {
@@ -100,7 +100,7 @@ public:
 
   void gripper_state_callback(const melfa_msgs::msg::GpioState& msg)
   {
-    uint16_t gripper_input = msg.input_data;
+    uint16_t gripper_input = msg.output_data;
     auto gripper_state_ = melfa_masterclass_msgs::msg::GripperState();
     gripper_state_.double_solenoid = double_solenoid;
 
@@ -216,7 +216,7 @@ public:
     auto message = melfa_msgs::msg::GpioCommand();
     message.bitid = 900;
     message.bitmask = 0xFFFF;
-    message.bit_recv_type = "MXT_IO_IN";
+    message.bit_recv_type = "MXT_IO_OUT";
     message.bit_send_type = "MXT_IO_OUT";
     message.bitdata = gripper_command_int_;
 
@@ -326,7 +326,7 @@ int main(int argc, char** argv)
   configure_io_(node_, "READ_IN", 128, 0xffff, 0);
 
   // configure gripper_io controller to monitor gripper state.
-  configure_io_(node_, "READ_IN", 900, 0xffff, 0);
+  configure_io_(node_, "READ_OUT", 900, 0xffff, 0);
 
   rclcpp::executors::MultiThreadedExecutor executor;
   executor.add_node(node_);
