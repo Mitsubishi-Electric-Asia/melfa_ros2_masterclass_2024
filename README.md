@@ -6,7 +6,7 @@
 
 This repository was used for the Masterclass conducted at [ROS Industrial Asia Pacific Summit 2024](https://rosindustrial.org/events/2024/2/1/ros-industrial-consortium-asia-pacific-annual-summit-2024).
 
-MELSOFT is a collection of Mitsubishi Electric engineering softwares that augment our state of art indutrial hardware products to power industry leading automation solutions. 
+MELSOFT is a collection of Mitsubishi Electric engineering softwares that augment our state of art industrial hardware products to power industry leading automation solutions. 
 - [Learn more about MELSOFT](https://www.mitsubishielectric.com/fa/products/index.html#section_software)
 
 ### __MELSOFT RT Toolbox3 (Robot)__ 
@@ -19,7 +19,7 @@ __Total engineering support software for MELFA Robots__
 - Create and edit programs without teach pendant
 - Operating environment validation with _3D viewer_
 - Accurate simulation of robot kinematics and dynamics
-- Log & Optimise cycle times with _Real Time Monitoring_
+- Log & Optimize cycle times with _Real Time Monitoring_
 - Monitoring & log robots states and faults during operations
 - Click on the image below to learn more!
 <br/></br>
@@ -59,15 +59,15 @@ __Professional designs. Maximized efficiency. Intuitive operations. Made possibl
 MELFA ROS2 Masterclass 2024 utilizes physical and simulated hardware to provide a robust platform with hardware accurate digital twins for MELSEC, MELFA and GOT products. This section describes the purpose and functionality of the included MELSOFT project files.
 
 ### __RV-5AS__
-- [MELSOFT RT Toolbox3](https://www.mitsubishielectric.com/fa/products/rbt/robot/smerit/rt3/index.html) project folder for [MELFA](https://www.mitsubishielectric.com/fa/products/rbt/robot/index.html) RV-5AS collaboratie robot. 
+- [MELSOFT RT Toolbox3](https://www.mitsubishielectric.com/fa/products/rbt/robot/smerit/rt3/index.html) project folder for [MELFA](https://www.mitsubishielectric.com/fa/products/rbt/robot/index.html) RV-5AS collaborate robot. 
 - This project folder is used to configure and program a physical RV-5AS robot used in the Masterclass.
-- This porject file is used to create and configure a simulated RV-5AS robot that is identical to the physical robot used in the Masterclass.
+- This project file is used to create and configure a simulated RV-5AS robot that is identical to the physical robot used in the Masterclass.
 <div> </div>
 
 ### __FX5UJ_hw.gx3__
 - [MELSOFT GX Works3](https://www.mitsubishielectric.com/fa/products/cnt/plceng/smerit/gx_works3/index.html) project file for [MELSEC IQ-F](https://www.mitsubishielectric.com/fa/products/cnt/plcf/items/index.html) FX5UJ programmable logic controller.
 - This project file is used to configure and program a physical FX5UJ PLC used in the Masterclass.
-- This porject file is used to create and configure a simulated FX5UJ PLC that is identical to the physical PLC used in the Masterclass.
+- This project file is used to create and configure a simulated FX5UJ PLC that is identical to the physical PLC used in the Masterclass.
 <div> </div>
 
 ### __GT27_hw.GTX__
@@ -86,9 +86,9 @@ MELFA ROS2 Masterclass 2024 utilizes physical and simulated hardware to provide 
 - Custom ROS2 interfaces for this Masterclass
 
 ### melfa_rv5as_masterclass
-- Executables and launch files for ROS2 programs used during the Maserclass
+- Executables and launch files for ROS2 programs used during the Masterclass
 
-## __4. Ussage and Installation__
+## __4. Usage and Installation__
 
 &#10146; Note: This repository supports Ubuntu 22.04 for ROS2 Humble and Windows10 for MELSOFT __ONLY__. Using a different operating environment may cause in unintended results.
 
